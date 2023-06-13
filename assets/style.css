@@ -54,6 +54,30 @@ body {
     padding: 20px;
 }
 
+#section1.parallax {
+    background-image: url('assets/backgrounds/background1.jpg');
+}
+
+#section2.parallax {
+    background-image: url('assets/backgrounds/background2.jpg');
+}
+
+#section3.parallax {
+    background-image: url('assets/backgrounds/background3.jpg');
+}
+
+#section4.parallax {
+    background-image: url('assets/backgrounds/background4.jpg');
+}
+
+#section5.parallax {
+    background-image: url('assets/backgrounds/background5.jpg');
+}
+
+#section6.parallax {
+    background-image: url('assets/backgrounds/background6.jpg');
+}
+
 .content {
     padding: 50px;
     text-align: center;
