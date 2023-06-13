@@ -1,8 +1,45 @@
-window.addEventListener("scroll", function() {
-    var parallax = document.querySelector(".parallax");
-    var content = document.querySelector(".content");
-    var scrollPosition = window.pageYOffset;
+document.addEventListener("DOMContentLoaded", function() {
+    // Set up the parallax effect on page load
+    setupParallax();
 
-    parallax.style.backgroundPositionY = scrollPosition * 0.7 + "px";
-    content.style.transform = "translateY(" + scrollPosition * 0.5 + "px)";
+    // Set up smooth scrolling for sidebar navigation
+    setupSmoothScrolling();
 });
+
+window.addEventListener("resize", function() {
+    // Update the parallax effect on window resize
+    setupParallax();
+});
+
+window.addEventListener("scroll", function() {
+    // Update the parallax effect on scroll
+    setupParallax();
+});
+
+function setupParallax() {
+    var parallaxSections = document.querySelectorAll(".parallax");
+
+    parallaxSections.forEach(function(section) {
+        var sectionHeight = window.innerHeight;
+        section.style.height = sectionHeight + "px";
+    });
+}
+
+function setupSmoothScrolling() {
+    var links = document.querySelectorAll(".sidebar a");
+
+    links.forEach(function(link) {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+
+            var target = this.getAttribute("href");
+            var targetElement = document.querySelector(target);
+            var targetPosition = targetElement.offsetTop;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+            });
+        });
+    });
+}
